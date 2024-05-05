@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Launch Countries{% endblock %}
+
+{% block content %}
+    <style>
+        /* CSS for launch countries page */
+        body {
+            background-color: #111; /* Dark background color */
+            color: #fff; /* White text color */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #00aaff; /* Blue color */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #555; /* Dark gray border */
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #222; /* Dark gray background color for table headers */
+        }
+        tr:nth-child(even) {
+            background-color: #333; /* Dark gray background color for even rows */
+        }
+        tr:hover {
+            background-color: #444; /* Slightly lighter gray background color on hover */
+        }
+    </style>
+
+    <h1>Launch Countries</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Code</th>
+                <!-- Add other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for country in launch_countries %}
+            <tr>
+                <td>{{ country.name }}</td>
+                <td>{{ country.code }}</td>
+                <!-- Add other fields as needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

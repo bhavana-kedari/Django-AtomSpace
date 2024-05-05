@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <style>
+        /* CSS for index page */
+        body {
+            background-color: #111; /* Dark background color */
+            color: #fff; /* White text color */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center; /* Center align content */
+        }
+        h1 {
+            color: #ffcc00; /* Vibrant yellow color */
+            margin: 20px auto; /* Add some space on top and bottom, center align horizontally */
+            max-width: 600px; /* Limit width for better readability */
+        }
+        p {
+            color: #ddd; /* Light gray text color */
+            margin: 0 auto 20px; /* Center align with some space at the bottom */
+            max-width: 600px; /* Limit text width for better readability */
+            text-align: justify; /* Justify text */
+        }
+        .fun-text {
+            font-size: 20px; /* Increase font size for fun text */
+            margin: 40px auto; /* Add space on top and bottom, center align horizontally */
+            max-width: 600px; /* Limit width for better readability */
+        }
+    </style>
+
+    <h1>Welcome to the Satellite Tracking System!</h1>
+    <p>Embark on a cosmic journey with our Django-powered satellite tracking application. Explore the mysteries of space as you navigate through a galaxy of satellite data and launch country information.</p>
+
+    <div class="fun-text">
+        <p>Our system orbits around two main celestial bodies:</p>
+        <p>Satellites: this table holds key information such as their names, NORAD IDs, orbits, and even their launch countries.</p>
+        <p>Launch Countries: This table specifies where our satellites take their first leap into space, each with its own unique name and launch code.</p>
+        <p>All satellite data has been meticulously gathered from NORAD's database, while launch countries were spontaneously generated.</p>
+        <p>Ready to launch your exploration? The site can be hosted on any platform with the flick of a cosmic switch using Docker.</p>
+    </div>
+{% endblock %}
