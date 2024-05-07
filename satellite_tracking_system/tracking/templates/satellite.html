@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Satellite Table{% endblock %}
+
+{% block content %}
+    <style>
+        /* CSS for satellite table page */
+        body {
+            background-color: #111; /* Dark background color */
+            color: #fff; /* White text color */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #7946d7; /* Vibrant purple color */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #555; /* Dark gray border */
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #333; /* Dark gray background color for table headers */
+        }
+        tr:nth-child(even) {
+            background-color: #222; /* Dark gray background color for even rows */
+        }
+        tr:hover {
+            background-color: #444; /* Slightly lighter gray background color on hover */
+        }
+    </style>
+
+    <h1>Satellite Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Object ID</th>
+                <th>Epoch</th>
+                <th>Mean Motion</th>
+                <th>Eccentricity</th>
+                <th>Inclination</th>
+                <th>RA of Ascending Node</th>
+                <th>Argument of Pericenter</th>
+                <th>Mean Anomaly</th>
+                <th>Ephemeris Type</th>
+                <th>Classification Type</th>
+                <th>NORAD Catalog ID</th>
+                <th>Element Set Number</th>
+                <th>Rev at Epoch</th>
+                <th>BStar</th>
+                <th>Mean Motion Dot</th>
+                <th>Mean Motion DDot</th>
+                <th>Launch Country</th>
+                <!-- Add other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for satellite in satellites %}
+            <tr>
+                <td>{{ satellite.name }}</td>
+                <td>{{ satellite.object_id }}</td>
+                <td>{{ satellite.epoch }}</td>
+                <td>{{ satellite.mean_motion }}</td>
+                <td>{{ satellite.eccentricity }}</td>
+                <td>{{ satellite.inclination }}</td>
+                <td>{{ satellite.ra_of_asc_node }}</td>
+                <td>{{ satellite.arg_of_pericenter }}</td>
+                <td>{{ satellite.mean_anomaly }}</td>
+                <td>{{ satellite.ephemeris_type }}</td>
+                <td>{{ satellite.classification_type }}</td>
+                <td>{{ satellite.norad_cat_id }}</td>
+                <td>{{ satellite.element_set_no }}</td>
+                <td>{{ satellite.rev_at_epoch }}</td>
+                <td>{{ satellite.bstar }}</td>
+                <td>{{ satellite.mean_motion_dot }}</td>
+                <td>{{ satellite.mean_motion_ddot }}</td>
+                <td>{{ satellite.launch_country }}</td>
+                <!-- Add other fields as needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
