@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Satellite List{% endblock %}
+
+{% block content %}
+    <style>
+        /* CSS for satellite list page */
+        body {
+            background-color: #111; /* Dark background color */
+            color: #fff; /* White text color */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #7946d7; /* Vibrant purple color */
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: auto; /* Center the list */
+            max-width: 600px;
+            text-align: justify; /* Justify the list */
+        }
+        li {
+            margin-bottom: 10px;
+            font-weight: bold; /* Make list items bold */
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #7946d7; /* Purple color on hover */
+        }
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            color: #7946d7;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #111;
+                color: #fff;
+            }
+            a {
+                color: #fff;
+            }
+            a:hover {
+                color: #7946d7;
+            }
+        }
+    </style>
+
+    <h1>Satellite List</h1>
+    <ul>
+        {% for satellite in satellites %}
+            <li><a href="{% url 'satellite_history' satellite.id %}">{{ satellite.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        {% if satellites.has_previous %}
+            <a href="?page=1">First</a>
+            <a href="?page={{ satellites.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span>{{ satellites.number }}</span>
+        /
+        <span>{{ satellites.paginator.num_pages }}</span>
+        {% if satellites.has_next %}
+            <a href="?page={{ satellites.next_page_number }}">Next</a>
+            <a href="?page={{ satellites.paginator.num_pages }}">Last</a>
+        {% endif %}
+    </div>
+{% endblock %}
